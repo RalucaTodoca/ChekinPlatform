@@ -1,0 +1,62 @@
+<form [formGroup]="courseForm" class="form-container" (ngSubmit)="addCourse(courseForm)">
+  <div class="centered">
+    <mat-card>
+        <!-- Header -->
+        <div class="field-container">
+          <mat-card-header>
+              <mat-card-title>Course Information</mat-card-title>
+          </mat-card-header>
+        </div>
+        <!-- Body -->
+
+        <mat-card-content>
+          <div class="field-container">
+            <!-- Name -->
+            <div>
+              <mat-form-field appearance="fill" class="half-width">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+              </mat-form-field>
+            </div>
+
+            <!-- Year -->
+            <div>
+              <mat-form-field appearance="fill" class="half-width">
+                <mat-label>Year</mat-label>
+                <mat-select formControlName="year">
+                  <mat-option [value]="1">1</mat-option>
+                  <mat-option [value]="2">2</mat-option>
+                  <mat-option [value]="3">3</mat-option>
+                  <mat-option [value]="4">4</mat-option>
+              </mat-select>
+              </mat-form-field>
+            </div>
+
+            <!-- Section -->
+            <div>
+              <mat-form-field appearance="fill" class="half-width">
+                <mat-label>Section</mat-label>
+                <input matInput formControlName="section">
+              </mat-form-field>
+            </div>
+
+            <!-- Teacher -->
+            <!-- <div>
+              <div>
+                <mat-form-field appearance="fill" class="half-width">
+                  <mat-label>Teacher</mat-label>
+                  <input matInput formControlName="teacher">
+                </mat-form-field>
+              </div>
+            </div> -->
+
+          </div>
+        </mat-card-content>
+        <div class="field-container">
+          <mat-card-actions align="start">
+            <button mat-raised-button color="primary" (ngSubmit)="addCourse(courseForm)" [disabled]="courseForm.pristine || courseForm.invalid">Create</button>
+          </mat-card-actions>
+      </div>
+    </mat-card>
+  </div>
+</form>

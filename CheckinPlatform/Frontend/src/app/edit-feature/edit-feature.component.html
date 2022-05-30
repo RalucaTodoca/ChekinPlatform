@@ -1,0 +1,32 @@
+<form [formGroup]="editFeatureForm" class="form-container" (ngSubmit)="updateFeature(editFeatureForm)">
+    <div class="centered">
+      <mat-card>
+          <!-- Header -->
+          <div class="field-container">
+            <mat-card-header>
+                <mat-card-title>Edit Feature</mat-card-title>
+            </mat-card-header>
+          </div>
+          <!-- Body -->
+  
+          <mat-card-content>
+            <div class="field-container">
+              <!-- Name -->
+              <div>
+                <mat-form-field appearance="fill" class="half-width">
+                  <mat-label>Name</mat-label>
+                  <input matInput formControlName="name" value="{{ editFeature?.name }}">
+                </mat-form-field>
+              </div>
+  
+            </div>
+          </mat-card-content>
+          <div class="field-container">
+            <mat-card-actions align="start">
+                <button mat-raised-button color="primary">Update</button>
+  
+            </mat-card-actions>
+        </div>
+      </mat-card>
+    </div>
+  </form>

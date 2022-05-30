@@ -1,0 +1,82 @@
+<form [formGroup]="userProfileForm" class="form-container" (ngSubmit)="addUser(userProfileForm)">
+  <div class="centered">
+      <mat-card>
+        <!-- Header -->
+        <div class="field-container">
+          <mat-card-header>
+              <mat-card-title>User Information</mat-card-title>
+          </mat-card-header>
+        </div>
+        <!-- Body -->
+        <mat-card-content>
+          <!-- First name -->
+          <div class="field-container">
+            <div>
+              <mat-form-field appearance="fill" class="half-width">
+                <mat-label>First Name</mat-label>
+                <input  matInput formControlName="firstName">
+              </mat-form-field>
+            </div>
+
+            <!-- Last Name -->
+            <div>
+              <mat-form-field appearance="fill" class="half-width">
+                <mat-label>Last Name</mat-label>
+                <input  matInput formControlName="lastName">
+              </mat-form-field>
+            </div>
+
+            <!-- Year -->
+            <div>
+              <mat-form-field appearance="fill" class="half-width">
+                <mat-label>Year</mat-label>
+                <mat-select  formControlName="year">
+                  <mat-option [value]="1">1</mat-option>
+                  <mat-option [value]="2">2</mat-option>
+                  <mat-option [value]="3">3</mat-option>
+                  <mat-option [value]="4">4</mat-option>
+              </mat-select>
+              </mat-form-field>
+            </div>
+
+            <!-- Department -->
+            <div>
+              <mat-form-field appearance="fill" class="half-width">
+                <mat-label>Department</mat-label>
+                <input  matInput formControlName="department">
+              </mat-form-field>
+            </div>
+
+            <!-- Section -->
+            <div>
+              <mat-form-field appearance="fill" class="half-width">
+                <mat-label>Section</mat-label>
+                <input  matInput formControlName="section">
+              </mat-form-field>
+            </div>
+
+            <!-- Role -->
+            <div>
+              <mat-form-field appearance="fill" class="half-width">
+                <mat-label>Role</mat-label>
+                  <mat-select  formControlName="role">
+                      <mat-option value="GUEST">Guest</mat-option>
+                      <mat-option value="STUDENT">Student</mat-option>
+                      <mat-option value="TEACHER">Teacher</mat-option>
+                      <mat-option value="ADMIN">Admin</mat-option>
+                  </mat-select>
+              </mat-form-field>
+            </div>
+
+
+          </div>
+        </mat-card-content>
+        <div class="field-container">
+          <mat-card-actions align="start">
+              <button mat-raised-button color="primary">Create</button>
+
+          </mat-card-actions>
+      </div>
+    </mat-card>
+  </div>
+</form>

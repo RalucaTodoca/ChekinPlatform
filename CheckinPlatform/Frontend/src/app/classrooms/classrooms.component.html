@@ -1,0 +1,21 @@
+<div class="container">
+    <ul class="responsive-table">
+        <button type="button" class="btn btn-dark" (click)="goToAddClassroom()">Add Classroom</button>
+
+        <div *ngIf="classrooms?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+            <div class="alert alert-info" role="alert">
+                <h4 class="alert-heading">NO CLASSROOMS FOUND!</h4>
+            </div>
+        </div>
+
+        <li class="classroom-row" *ngFor="let classroom of classrooms">
+            <p>{{ classroom?.name }}</p>
+            <div class="buttons">
+                <button type="button" class="btn btn-secondary" (click)="onDetailsClassroom(classroom.name, classroom.location, classroom.capacity, classroom.features)">Details</button>
+                <button type="button" class="btn btn-primary" (click)="onEditClassroom(classroom.id)">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="openConfirmationDialog(classroom.id, classroom.name)">Delete</button>
+            </div>
+        </li>
+    </ul>
+    
+</div>

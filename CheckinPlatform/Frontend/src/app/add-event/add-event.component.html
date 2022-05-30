@@ -1,0 +1,57 @@
+<form [formGroup]="eventForm" class="form-container" (ngSubmit)="addEvent(eventForm)">
+  <div class="centered">
+      <mat-card>
+        <!-- Header -->
+        <div class="field-container">
+          <mat-card-header>
+              <mat-card-title>Create an event</mat-card-title>
+          </mat-card-header>
+        </div>
+        <!-- Body -->
+        <mat-card-content>
+          <div class="field-container">
+
+            <!-- Select Class -->
+            <br>
+            <h2>Select a course</h2>
+            <div>
+              <mat-form-field appearance="fill" class="half-width">
+                <mat-label>Course</mat-label>
+                <mat-select formControlName="course" id="select-class">
+                  <div *ngFor="let course of courses">
+                    <mat-option value="{{ course?.id }}"> {{course?.name}} </mat-option>
+                  </div>
+              </mat-select>
+              </mat-form-field>
+            </div>
+            <h2>Select a classroom</h2>
+            <div>
+              <mat-form-field appearance="fill" class="half-width">
+                <mat-label>Classroom</mat-label>
+                <mat-select formControlName="classroom" id="select-classroom">
+                  <div *ngFor="let classroom of classrooms">
+                    <mat-option value="{{ classroom?.id }}">
+                      {{classroom?.name}}  (capacity: {{classroom?.capacity}})
+                    </mat-option>
+                  </div>
+              </mat-select>
+              </mat-form-field>
+            </div>
+
+            <h2>Date/Time</h2>
+            <div>
+              <input mat-input type="datetime-local" formControlName="startTime" id="start-time">
+            </div>
+
+          </div>
+        </mat-card-content>
+        <div class="field-container">
+          <mat-card-actions align="start">
+              <button mat-raised-button color="primary" [disabled]="eventForm.pristine || eventForm.invalid">Create</button>
+
+          </mat-card-actions>
+      </div>
+    </mat-card>
+  </div>
+
+</form>

@@ -1,0 +1,66 @@
+<form [formGroup]="classroomForm" class="form-container" (ngSubmit)="addClassroom(classroomForm)">
+    <div class="centered">
+      <mat-card>
+          <!-- Header -->
+          <div class="field-container">
+            <mat-card-header>
+                <mat-card-title>Classroom Information</mat-card-title>
+            </mat-card-header>
+          </div>
+          <!-- Body -->
+  
+          <mat-card-content>
+            <div class="field-container">
+              <!-- Name -->
+              <div>
+                <mat-form-field appearance="fill" class="half-width">
+                  <mat-label>Name</mat-label>
+                  <input matInput formControlName="name">
+                </mat-form-field>
+              </div>
+  
+              <!-- Location -->
+              <div>
+                <mat-form-field appearance="fill" class="half-width">
+                  <mat-label>Location</mat-label>
+                  <input matInput formControlName="location">
+                </mat-form-field>
+              </div>
+              
+              <!-- Capacity -->
+              <div>
+                <mat-form-field appearance="fill" class="half-width">
+                  <mat-label>Capacity</mat-label>
+                  <input matInput formControlName="capacity">
+                </mat-form-field>
+              </div>
+
+              <!-- Features -->
+              <div>
+                <mat-form-field appearance="fill" class="half-width">
+                  <mat-label>Features</mat-label>
+                  <mat-select *ngIf="features?.length != 0" [(value)]="selectedFeatures" formControlName="features" multiple>
+                    <mat-option *ngFor="let feature of features" value="{{ feature?.name }}">
+                      {{feature?.name}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-select *ngIf="features?.length == 0" formControlName="features">
+                    <mat-option >
+                      none
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+  
+            </div>
+          </mat-card-content>
+          <div class="field-container">
+            <mat-card-actions align="start">
+              <button mat-raised-button color="primary" (ngSubmit)="addClassroom(classroomForm)" [disabled]="classroomForm.pristine || classroomForm.invalid">Create</button>
+  
+            </mat-card-actions>
+        </div>
+      </mat-card>
+    </div>
+  </form>
+  

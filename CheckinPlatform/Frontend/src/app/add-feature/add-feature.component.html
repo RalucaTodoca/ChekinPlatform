@@ -1,0 +1,33 @@
+<form [formGroup]="featureForm" class="form-container" (ngSubmit)="addFeature(featureForm)">
+    <div class="centered">
+      <mat-card>
+          <!-- Header -->
+          <div class="field-container">
+            <mat-card-header>
+                <mat-card-title>Add Feature</mat-card-title>
+            </mat-card-header>
+          </div>
+          <!-- Body -->
+  
+          <mat-card-content>
+            <div class="field-container">
+              <!-- Name -->
+              <div>
+                <mat-form-field appearance="fill" class="half-width">
+                  <mat-label>Name</mat-label>
+                  <input matInput formControlName="name">
+                </mat-form-field>
+              </div>
+  
+            </div>
+          </mat-card-content>
+          <div class="field-container">
+            <mat-card-actions align="start">
+              <button mat-raised-button color="primary" (ngSubmit)="addFeature(featureForm)" [disabled]="featureForm.pristine || featureForm.invalid">Create</button>
+  
+            </mat-card-actions>
+        </div>
+      </mat-card>
+    </div>
+  </form>
+  

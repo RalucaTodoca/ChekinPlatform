@@ -1,0 +1,20 @@
+<div class="container">
+    <ul class="responsive-table">
+        <button type="button" class="btn btn-dark" (click)="goToAddCourse()">Add Course</button>
+        
+        <div *ngIf="courses?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+            <div class="alert alert-info" role="alert">
+                <h4 class="alert-heading">NO COURSES FOUND!</h4>
+            </div>
+        </div>
+
+        <li class="course-row" *ngFor="let course of courses">
+            <p>{{ course?.name }}</p>
+            <div class="buttons">
+                <button type="button" class="btn btn-secondary" (click)="onDetailsCourse(course.name, course.year, course.section)">Details</button>
+                <button type="button" class="btn btn-primary" (click)="onEditCourse(course.id)">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="openConfirmationDialog(course.id, course.name)">Delete</button>
+            </div>
+        </li>
+    </ul>
+</div>
